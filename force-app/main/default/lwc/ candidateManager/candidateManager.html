@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Candidate Management">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Name" onchange={handleName}></lightning-input>
+            <lightning-input label="Email" onchange={handleEmail}></lightning-input>
+            <lightning-input label="Phone" onchange={handlePhone}></lightning-input>
+            <lightning-input label="Skills" onchange={handleSkills}></lightning-input>
+            <lightning-input label="Experience" type="number" onchange={handleExp}></lightning-input>
+            <lightning-button label="Add Candidate" onclick={addCandidate} class="slds-m-top_small"></lightning-button>
+        </div>
+
+        <template for:each={candidates} for:item="c">
+            <p key={c.Id}>{c.Name} - {c.Status__c}</p>
+        </template>
+    </lightning-card>
+</template>
