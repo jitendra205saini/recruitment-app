@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Job Management">
+        <div class="slds-m-around_medium">
+
+            <lightning-input label="Job Title" onchange={handleTitle}></lightning-input>
+            <lightning-input label="Department" onchange={handleDepartment}></lightning-input>
+            <lightning-input label="Required Skills" onchange={handleSkills}></lightning-input>
+            <lightning-input label="Experience Required" type="number" onchange={handleExp}></lightning-input>
+
+            <lightning-button 
+                label="Add Job" 
+                variant="brand"
+                onclick={addJob}
+                class="slds-m-top_small">
+            </lightning-button>
+
+        </div>
+
+        <div class="slds-m-around_medium">
+            <template for:each={jobs} for:item="job">
+                <p key={job.Id}>
+                    <strong>{job.Name}</strong> - {job.Department__c}
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
